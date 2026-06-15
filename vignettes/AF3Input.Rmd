@@ -1,0 +1,53 @@
+---
+title: "AF3Input"
+author: "Peter Huang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{AF3Input}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Overview
+
+AF3Input converts tabular DNA candidate calls into AlphaFold 3 input JSON.
+The sequence column is configurable, and selected metadata columns can be
+preserved in the DNA entity description.
+
+## Create JSON from a candidate table
+
+```{r create-json}
+library(AF3Input)
+
+candidates <- read_candidate_table(
+    system.file("extdata", "g4_candidates.tsv", package = "AF3Input")
+)
+
+paths <- write_af3_jsons_from_table(
+    candidates,
+    out_dir = tempdir(),
+    sequence_col = "SEQUENCE",
+    description_cols = c("ID", "POSITION", "SCORE", "ABS_SCORE"),
+    name_cols = c("ID", "POSITION"),
+    score_col = "SCORE",
+    reverse_complement_negative = TRUE,
+    ions = list(list(code = "K", copies = 2)),
+    seeds = c(1, 2),
+    limit = 2
+)
+
+basename(paths)
+```
+
+Negative-score rows can be reverse-complemented before writing JSON. This is
+useful for G4Hunter-like output where negative scores often mark C-rich
+sequences whose reverse complement is G-rich.
+
+```{r session-info}
+sessionInfo()
+```

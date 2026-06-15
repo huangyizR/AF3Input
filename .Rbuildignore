@@ -1,0 +1,7 @@
+^\\.git$
+^\\.gitignore$
+^\\.Rproj\\.user$
+^README\\.Rmd$
+^AF3Input\\.Rproj$
+^inst/python/__pycache__$
+^\\.\\.Rcheck$

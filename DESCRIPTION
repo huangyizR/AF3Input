@@ -1,0 +1,33 @@
+Package: AF3Input
+Title: Generate AlphaFold 3 Input JSON for Nucleic Acid Candidates
+Version: 0.99.0
+Authors@R:
+    person("Peter", "Huang", email = "peter.huang@example.com",
+           role = c("aut", "cre"))
+Author: Peter Huang [aut, cre]
+Maintainer: Peter Huang <peter.huang@example.com>
+Description: Utilities to transform tabular nucleic acid candidate calls,
+    such as G-quadruplex candidate tables, into AlphaFold 3 input JSON files.
+    The package supports configurable sequence columns, metadata descriptions,
+    DNA copy number, reverse-complement handling, optional complementary DNA
+    strands, DNA base modifications, ions represented as CCD ligands, and model
+    seed configuration.
+License: MIT + file LICENSE
+URL: https://github.com/peter-huang/AF3Input
+BugReports: https://github.com/peter-huang/AF3Input/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    R (>= 4.5.0)
+Imports:
+    Biostrings,
+    jsonlite,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+biocViews: Software, DataImport, Sequencing
+Config/testthat/edition: 3
