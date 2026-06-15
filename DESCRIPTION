@@ -2,10 +2,10 @@ Package: AF3Input
 Title: Generate AlphaFold 3 Input JSON for Nucleic Acid Candidates
 Version: 0.99.0
 Authors@R:
-    person("Peter", "Huang", email = "peter.huang@example.com",
+    person("Peter", "Huang", email = "peterhuang319@gmail.com",
            role = c("aut", "cre"))
 Author: Peter Huang [aut, cre]
-Maintainer: Peter Huang <peter.huang@example.com>
+Maintainer: Peter Huang <peterhuang319@gmail.com>
 Description: Utilities to transform tabular nucleic acid candidate calls,
     such as G-quadruplex candidate tables, into AlphaFold 3 input JSON files.
     The package supports configurable sequence columns, metadata descriptions,
